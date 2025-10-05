@@ -52,7 +52,7 @@ const HomePage = () => {
                 {/* 3. The Challenge Section */}
                 <section className="py-20 bg-orange-50">
                     <div className="container mx-auto px-6 text-center">
-                        <p className="text-gray-600 mb-12 max-w-2xl mx-auto">This Sunday, October 5th, 2025, thousands face challenges that diminish their spiritual experience. MandirGo is here to change that.</p>
+                        <p className="text-gray-600 mb-12 max-w-2xl mx-auto">Aim to reduce congestion, ensure safety and provide a smooth and peaceful spiritual experience.</p>
                         <div className="grid md:grid-cols-3 gap-8">
                             <FeatureCard icon={<FiClock />} title="Endless Waiting Times">
                                 Devotees, especially the elderly and families, spend hours in disorganized queues.
