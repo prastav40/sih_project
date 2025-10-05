@@ -1,0 +1,44 @@
+# Node modules
+node_modules/
+
+# Parcel cache
+.parcel-cache/
+
+# Build output
+dist/
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# VS Code settings
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# npm debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Optional: lock files (if switching between npm/yarn/pnpm)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# IDE backups
+*.swp
+*.swo
+
+# Coverage reports
+coverage/
+
+# Misc
+*.tgz
+*.zip
+*.bak
+*.tmp
