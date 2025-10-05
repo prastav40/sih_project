@@ -129,6 +129,40 @@ const LiveCrowdStatusPage = () => {
                     </div>
                 </div>
             </div>
+            
+                 <footer className="bg-gray-800 text-white">
+                <div className="container mx-auto px-6 py-12">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <div>
+                            <h3 className="font-bold text-lg mb-4">MandirGo</h3>
+                            <p className="text-gray-400">Divine Peace. Managed Intelligently.</p>
+                        </div>
+                        <div>
+                            <h3 className="font-bold mb-4">About</h3>
+                            <a href="#" className="block text-gray-400 hover:text-white">Our Mission</a>
+                            <a href="#" className="block text-gray-400 hover:text-white">Careers</a>
+                        </div>
+                        <div>
+                            <h3 className="font-bold mb-4">Support</h3>
+                            <a href="#" className="block text-gray-400 hover:text-white">Contact Us</a>
+                            <a href="#" className="block text-gray-400 hover:text-white">FAQs</a>
+                        </div>
+                        <div>
+                            <h3 className="font-bold mb-4">Legal</h3>
+                            <a href="#" className="block text-gray-400 hover:text-white">Privacy Policy</a>
+                            <a href="#" className="block text-gray-400 hover:text-white">Terms of Service</a>
+                        </div>
+                         <div>
+                            <h3 className="font-bold mb-4">Contact</h3>
+                            <a href="#" className="block text-gray-400 hover:text-white">Ph no.9856123489</a>
+                            <a href="#" className="block text-gray-400 hover:text-white">email:MandirGo@gmail.com</a>
+                        </div>
+                    </div>
+                    <div className="text-center text-gray-500 border-t border-gray-700 mt-8 pt-6">
+                        © 2025 MandirGo Technologies Pvt. Ltd. All rights reserved.
+                    </div>
+                </div>
+            </footer>
         </div>
     );
 };

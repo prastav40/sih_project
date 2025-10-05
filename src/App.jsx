@@ -14,6 +14,7 @@ import DarshanBookingPage from './Booking.jsx';
 import TempleEventsPageAlt from './UpComingEvent.jsx';
 import Map from './Map.jsx';
 import LiveCrowdStatusPage from './LiveCrowdStatus.jsx';
+import AnnouncementPage from './Announcemet.jsx';
 // This App component now acts as the main layout for your entire site.
 // The <Outlet /> component will render the specific page (HomePage, FeaturesSection, etc.)
 const App = () => {
@@ -77,6 +78,11 @@ const router = createBrowserRouter([
                 path: "/livestatus",
                 // CORRECT: Use the capitalized component name
                 element:<LiveCrowdStatusPage/>,
+            },
+                 {
+                path: "/announcement",
+                // CORRECT: Use the capitalized component name
+                element:<AnnouncementPage/>,
             },
             
            

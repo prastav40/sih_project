@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-// Added FiCreditCard for the payment step
-import { FiCalendar, FiClock, FiUsers, FiArrowRight, FiCheckCircle, FiDownload, FiCreditCard, FiLoader } from 'react-icons/fi';
+// Added FiMapPin for the temple selection
+import { FiCalendar, FiClock, FiUsers, FiArrowRight, FiCheckCircle, FiDownload, FiCreditCard, FiLoader, FiMapPin } from 'react-icons/fi';
 import { QRCodeSVG } from 'qrcode.react';
 
 // --- Helper Components ---
 const Stepper = ({ currentStep }) => {
-    // UPDATED: Added 'Payment' to the steps array
     const steps = ['Date & Time', 'Devotee Details', 'Payment', 'Success'];
     return (
         <div className="flex justify-between items-center mb-12">
@@ -24,17 +23,26 @@ const Stepper = ({ currentStep }) => {
     );
 };
 
+// --- Main Page Component ---
 const DarshanBookingPage = () => {
+    const [selectedTemple, setSelectedTemple] = useState('');
     const [currentStep, setCurrentStep] = useState(1);
     const [selectedDate, setSelectedDate] = useState(new Date('2025-10-05'));
     const [selectedSlot, setSelectedSlot] = useState(null);
     const [devotees, setDevotees] = useState([{ id: 1, name: '', age: '' }]);
     const [bookingId, setBookingId] = useState(null);
-    // NEW: State to manage payment process
-    const [paymentStatus, setPaymentStatus] = useState('pending'); // pending, verifying, success
+    const [paymentStatus, setPaymentStatus] = useState('pending');
 
-    const bookingAmount = devotees.length * 50; // Example: ₹50 per devotee
-    const upiId = 'sevashututrust@upi'; // Example UPI ID
+    // UPDATED: Data for temple dropdown with new names
+    const temples = [
+        { id: 'somnath', name: 'Somnath Temple' },
+        { id: 'dwarka', name: 'Dwarkadhish Temple' },
+        { id: 'ambaji', name: 'Ambaji Temple' },
+        { id: 'pavagadh', name: 'Kalika Mata Temple, Pavagadh' },
+    ];
+
+    const bookingAmount = devotees.length * 50;
+    const upiId = 'sevashututrust@upi';
     const upiLink = `upi://pay?pa=${upiId}&pn=SevaSetu%20Trust&am=${bookingAmount}.00&cu=INR&tn=DarshanBooking${Date.now()}`;
 
     const timeSlots = [
@@ -53,6 +61,7 @@ const DarshanBookingPage = () => {
     };
 
     const handleNextStep = () => {
+        if (currentStep === 1 && !selectedTemple) { alert("Please select a temple."); return; }
         if (currentStep === 1 && !selectedSlot) { alert("Please select a time slot."); return; }
         if (currentStep === 2 && devotees.some(d => !d.name || !d.age)) { alert("Please fill in all devotee details."); return; }
         
@@ -61,25 +70,26 @@ const DarshanBookingPage = () => {
         setCurrentStep(currentStep + 1);
     };
     
-    // NEW: Simulate payment verification
     const handlePaymentVerification = () => {
         setPaymentStatus('verifying');
         setTimeout(() => {
             setPaymentStatus('success');
-            // Move to the final step after successful "verification"
             setCurrentStep(currentStep + 1); 
-        }, 3000); // Simulate a 3-second delay
+        }, 3000);
     };
 
     const handlePrevStep = () => setCurrentStep(currentStep - 1);
     
     const handleNewBooking = () => {
+        setSelectedTemple('');
         setSelectedSlot(null);
         setDevotees([{ id: 1, name: '', age: '' }]);
         setBookingId(null);
         setPaymentStatus('pending');
         setCurrentStep(1);
     };
+
+    const getTempleName = () => temples.find(t => t.id === selectedTemple)?.name;
 
     return (
         <div className="min-h-screen bg-amber-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -89,9 +99,22 @@ const DarshanBookingPage = () => {
                 
                 <Stepper currentStep={currentStep} />
 
-                {/* Step 1 & 2 remain the same */}
                 {currentStep === 1 && (
                     <div>
+                        <div className="mb-8">
+                            <h2 className="text-xl font-bold text-slate-700 mb-4 flex items-center"><FiMapPin className="mr-3 text-amber-500" />Select Temple</h2>
+                            <select 
+                                value={selectedTemple}
+                                onChange={(e) => setSelectedTemple(e.target.value)}
+                                className="p-3 border border-slate-300 rounded-lg w-full focus:ring-2 focus:ring-amber-500 focus:outline-none bg-white"
+                            >
+                                <option value="" disabled>-- Please choose a temple --</option>
+                                {temples.map(temple => (
+                                    <option key={temple.id} value={temple.id}>{temple.name}</option>
+                                ))}
+                            </select>
+                        </div>
+
                         <div className="mb-8">
                             <h2 className="text-xl font-bold text-slate-700 mb-4 flex items-center"><FiCalendar className="mr-3 text-amber-500" />Select Date</h2>
                             <input type="date" value={selectedDate.toISOString().split('T')[0]} onChange={(e) => setSelectedDate(new Date(e.target.value))} className="p-3 border border-slate-300 rounded-lg w-full" />
@@ -128,40 +151,37 @@ const DarshanBookingPage = () => {
                     </div>
                 )}
 
-                {/* NEW: Step 3 - Payment */}
                 {currentStep === 3 && (
-                     <div>
-                        <h2 className="text-xl font-bold text-slate-700 mb-6 flex items-center"><FiCreditCard className="mr-3 text-amber-500"/>Complete Your Payment</h2>
-                        <div className="grid lg:grid-cols-2 gap-8">
-                            {/* Left: Booking Summary */}
-                            <div className="bg-slate-50 p-6 rounded-lg">
-                                <h3 className="font-bold text-lg mb-4">Booking Summary</h3>
-                                <div className="space-y-3">
-                                    <p><strong>Date:</strong> {selectedDate.toDateString()}</p>
-                                    <p><strong>Time Slot:</strong> {selectedSlot}</p>
-                                    <p><strong>Devotees:</strong> {devotees.length}</p>
-                                    <hr/>
-                                    <p className="text-xl font-bold">Total Amount: ₹{bookingAmount}</p>
-                                </div>
-                            </div>
-                            {/* Right: QR Code Payment */}
-                            <div className="text-center">
-                                <h3 className="font-bold text-lg mb-2">Scan to Pay with UPI</h3>
-                                <p className="text-sm text-slate-500 mb-4">Use any UPI app like Google Pay, PhonePe, Paytm</p>
-                                <div className="p-4 bg-white rounded-lg shadow-md inline-block">
-                                    <QRCodeSVG value={upiLink} size={200} includeMargin={true} />
-                                </div>
-                                <button onClick={handlePaymentVerification} disabled={paymentStatus === 'verifying'} 
-                                    className="w-full mt-6 bg-green-600 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-green-700 disabled:bg-slate-400"
-                                >
-                                    {paymentStatus === 'verifying' ? <><FiLoader className="animate-spin"/> Verifying Payment...</> : 'I Have Paid, Verify Now'}
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                       <div>
+                         <h2 className="text-xl font-bold text-slate-700 mb-6 flex items-center"><FiCreditCard className="mr-3 text-amber-500"/>Complete Your Payment</h2>
+                         <div className="grid lg:grid-cols-2 gap-8">
+                             <div className="bg-slate-50 p-6 rounded-lg">
+                                 <h3 className="font-bold text-lg mb-4">Booking Summary</h3>
+                                 <div className="space-y-3">
+                                     <p><strong>Temple:</strong> {getTempleName()}</p>
+                                     <p><strong>Date:</strong> {selectedDate.toDateString()}</p>
+                                     <p><strong>Time Slot:</strong> {selectedSlot}</p>
+                                     <p><strong>Devotees:</strong> {devotees.length}</p>
+                                     <hr/>
+                                     <p className="text-xl font-bold">Total Amount: ₹{bookingAmount}</p>
+                                 </div>
+                             </div>
+                             <div className="text-center">
+                                 <h3 className="font-bold text-lg mb-2">Scan to Pay with UPI</h3>
+                                 <p className="text-sm text-slate-500 mb-4">Use any UPI app like Google Pay, PhonePe, Paytm</p>
+                                 <div className="p-4 bg-white rounded-lg shadow-md inline-block">
+                                     <QRCodeSVG value={upiLink} size={200} includeMargin={true} />
+                                 </div>
+                                 <button onClick={handlePaymentVerification} disabled={paymentStatus === 'verifying'} 
+                                     className="w-full mt-6 bg-green-600 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-green-700 disabled:bg-slate-400"
+                                 >
+                                     {paymentStatus === 'verifying' ? <><FiLoader className="animate-spin"/> Verifying Payment...</> : 'I Have Paid, Verify Now'}
+                                 </button>
+                             </div>
+                         </div>
+                     </div>
                 )}
 
-                {/* Step 4: Success */}
                 {currentStep === 4 && (
                     <div className="text-center">
                         <FiCheckCircle className="text-6xl text-green-500 mx-auto mb-4"/>
@@ -170,8 +190,9 @@ const DarshanBookingPage = () => {
                         <div className="mt-8 bg-slate-50 p-6 rounded-lg border-dashed border-2">
                              <h3 className="font-bold text-center mb-4">E-Ticket</h3>
                             <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-                               <QRCodeSVG value={JSON.stringify({ bookingId, date: selectedDate.toDateString(), slot: selectedSlot })} size={128} />
+                                <QRCodeSVG value={JSON.stringify({ bookingId, temple: getTempleName(), date: selectedDate.toDateString(), slot: selectedSlot })} size={128} />
                                 <div className="text-left">
+                                    <p><strong>Temple:</strong> {getTempleName()}</p>
                                     <p><strong>Booking ID:</strong> {bookingId}</p>
                                     <p><strong>Date:</strong> {selectedDate.toDateString()}</p>
                                     <p><strong>Time Slot:</strong> {selectedSlot}</p>
@@ -179,13 +200,12 @@ const DarshanBookingPage = () => {
                             </div>
                         </div>
                          <div className="mt-8 flex justify-center gap-4">
-                            <button className="bg-slate-600 text-white font-bold px-6 py-3 rounded-lg flex items-center gap-2"><FiDownload/> Download Ticket</button>
-                            <button onClick={handleNewBooking} className="bg-amber-500 text-white font-bold px-6 py-3 rounded-lg">Book Another Darshan</button>
-                        </div>
+                             <button className="bg-slate-600 text-white font-bold px-6 py-3 rounded-lg flex items-center gap-2"><FiDownload/> Download Ticket</button>
+                             <button onClick={handleNewBooking} className="bg-amber-500 text-white font-bold px-6 py-3 rounded-lg">Book Another Darshan</button>
+                         </div>
                     </div>
                 )}
                 
-                {/* Navigation Buttons */}
                 {currentStep < 3 && (
                     <div className="flex justify-between mt-12">
                         <button onClick={handlePrevStep} disabled={currentStep === 1} className="bg-slate-300 text-slate-700 font-bold px-6 py-3 rounded-lg disabled:opacity-50">Back</button>

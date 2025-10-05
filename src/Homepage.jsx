@@ -35,10 +35,10 @@ const HomePage = () => {
             <header className="relative bg-cover bg-center h-[60vh] md:h-[80vh] flex items-center z-300 " >
                 <div className="absolute inset-0 bg-black opacity-40"></div>
                 <div className="relative container mx-auto px-6 text-center text-white">
-                    <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+                    <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-left">
                         Welcome to MandirGo
                     </h1>
-                    <p className="text-lg md:text-xl mb-8">
+                    <p className="text-lg md:text-xl mb-8 text-left">
                         we are introducing the
                         innovative solution to
                         Efficient Devotee
@@ -78,7 +78,7 @@ const HomePage = () => {
                             <FeatureCard icon={<FiUsers />} title="Smart e-Darshan Queuing">Book timed slots via app or kiosks with real-time SMS and push notifications.</FeatureCard>
                             <FeatureCard icon={<FiCpu />} title="AI Crowd Analytics">Live heatmaps from existing CCTV feeds with instant alerts on bottlenecks.</FeatureCard>
                             <FeatureCard icon={<FiMessageSquare />} title="OnTime Communication">Send broadcast messages to devotees and manage staff from a central dashboard.</FeatureCard>
-                            <FeatureCard icon={<FiTrendingUp />} title="Data-Driven Insights">Use predictive analytics to anticipate footfall and plan resources effectively.</FeatureCard>
+                            <FeatureCard icon={<FiTrendingUp />} title="forecast data Insights">Use predictive analytics to anticipate footfall and plan resources effectively.</FeatureCard>
                         </div>
                     </div>
                 </section>
@@ -139,6 +139,11 @@ const HomePage = () => {
                             <h3 className="font-bold mb-4">Legal</h3>
                             <a href="#" className="block text-gray-400 hover:text-white">Privacy Policy</a>
                             <a href="#" className="block text-gray-400 hover:text-white">Terms of Service</a>
+                        </div>
+                         <div>
+                            <h3 className="font-bold mb-4">Contact</h3>
+                            <a href="#" className="block text-gray-400 hover:text-white">Ph no.9856123489</a>
+                            <a href="#" className="block text-gray-400 hover:text-white">email:MandirGo@gmail.com</a>
                         </div>
                     </div>
                     <div className="text-center text-gray-500 border-t border-gray-700 mt-8 pt-6">

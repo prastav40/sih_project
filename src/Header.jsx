@@ -1,7 +1,7 @@
 import { FaPrayingHands } from 'react-icons/fa';
 import { Link } from 'react-router';
 import { FiLogIn } from 'react-icons/fi';
-import DarshanBookingPage from './Booking.jsx';
+import DarshanBookingPage from './Booking.jsx'
 const Header=()=>{
     return(
         <div>
@@ -17,13 +17,15 @@ const Header=()=>{
                                 <Link to="./livestatus" className="text-gray-600 hover:text-orange-500">Live Crowd Status</Link>
                                 <Link to="/About" className="text-gray-600 hover:text-orange-500">About us</Link>
                                 <Link to="/Map" className="text-gray-600 hover:text-orange-500">Map and Directions</Link>
-                                <Link to="/Login"><button className="flex items-center text-gray-600 hover:text-orange-500">
-                                    <FiLogIn className="mr-1" /> Login
-                                </button></Link>
+                              <Link to="/announcement" className="text-gray-600 hover:text-orange-500">Announcement</Link>
+                              
                                  <Link to="/upcomingevent" className="text-gray-600 hover:text-orange-500">UpComing Event</Link>
                               
-                                <Link to="Booking"><button className="bg-orange-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors">
+                                <Link to="Booking" className=" text-gray-500 font-semibold px-4 py-2 rounded-lg  transition-colors">
                                     Darshan Booking
+                                </Link>
+                                  <Link to="/Login"><button className="flex items-center text-gray-600 hover:text-orange-500 bg-green-400 px-4 py-3 rounded-lg">
+                                    <FiLogIn className="mr-1" /> Login
                                 </button></Link>
                             </div>
                             <div className="md:hidden">

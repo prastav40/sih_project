@@ -24,7 +24,11 @@ const AboutPage = () => {
       {/* 2. Our Story Section */}
       <section className="py-24">
         <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+            <img src="https://c9admin.cottage9.com/uploads/5839/somnath-temple.jpg" alt="A serene temple corridor" className="rounded-xl shadow-2xl w-full h-auto object-cover" />
+          </div>
           <div className="space-y-6">
+          
             <h2 className="text-3xl lg:text-4xl font-bold text-slate-800">
               Our Journey: From a Crowded Lane to a Clear Vision
             </h2>
@@ -33,9 +37,7 @@ const AboutPage = () => {
             </p>
            
           </div>
-          <div>
-            <img src="https://c9admin.cottage9.com/uploads/5839/somnath-temple.jpg" alt="A serene temple corridor" className="rounded-xl shadow-2xl w-full h-auto object-cover" />
-          </div>
+          
         </div>
       </section>
       
@@ -150,17 +152,40 @@ const AboutPage = () => {
       </section>
 
       {/* 6. Call to Action Section */}
-      <section className="bg-slate-100">
-        <div className="container mx-auto px-6 py-24 text-center">
-            <h2 className="text-3xl font-bold text-slate-800 mb-4">Join Us in Our Mission</h2>
-            <p className="text-slate-600 text-lg mb-8 max-w-2xl mx-auto">
-                Whether you are a temple administrator looking to enhance your operations or a professional who shares our passion, we would love to connect.
-            </p>
-            <Link to="/contact" className="bg-amber-500 text-white font-bold px-10 py-4 rounded-lg text-xl hover:bg-amber-600 transition-all duration-300 transform hover:scale-105">
-                Get in Touch
-            </Link>
-        </div>
-      </section>
+      <footer className="bg-gray-800 text-white mt-12">
+                <div className="container mx-auto px-6 py-12">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <div>
+                            <h3 className="font-bold text-lg mb-4">MandirGo</h3>
+                            <p className="text-gray-400">Divine Peace. Managed Intelligently.</p>
+                        </div>
+                        <div>
+                            <h3 className="font-bold mb-4">About</h3>
+                            <a href="#" className="block text-gray-400 hover:text-white">Our Mission</a>
+                            <a href="#" className="block text-gray-400 hover:text-white">Careers</a>
+                        </div>
+                        <div>
+                            <h3 className="font-bold mb-4">Support</h3>
+                            <a href="#" className="block text-gray-400 hover:text-white">Contact Us</a>
+                            <a href="#" className="block text-gray-400 hover:text-white">FAQs</a>
+                        </div>
+                        <div>
+                            <h3 className="font-bold mb-4">Legal</h3>
+                            <a href="#" className="block text-gray-400 hover:text-white">Privacy Policy</a>
+                            <a href="#" className="block text-gray-400 hover:text-white">Terms of Service</a>
+                        </div>
+                         <div>
+                            <h3 className="font-bold mb-4">Contact</h3>
+                            <a href="#" className="block text-gray-400 hover:text-white">Ph no.9856123489</a>
+                            <a href="#" className="block text-gray-400 hover:text-white">email:MandirGo@gmail.com</a>
+                        </div>
+                    </div>
+                    <div className="text-center text-gray-500 border-t border-gray-700 mt-8 pt-6">
+                        © 2025 MandirGo Technologies Pvt. Ltd. All rights reserved.
+                    </div>
+                </div>
+            </footer>
+   
     </div>
   );
 };
