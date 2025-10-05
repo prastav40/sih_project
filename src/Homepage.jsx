@@ -27,15 +27,8 @@ const HomePage = () => {
         <div className="bg-gray-50 text-gray-700">
 
             {/* This div now spans the full screen and acts as the container */}
-            <div className='absolute inset-0 w-full h-full opacity-70 z-10'> {/* Use inset-0 for top/left/right/bottom */}
-                <iframe
-                    className="w-full h-[600px] " // Make iframe fill the container
-                    src="https://www.youtube.com/embed/ym4o5F8ncY0?autoplay=1&mute=1&loop=1&playlist=ym4o5F8ncY0&controls=0" // Modified URL for autoplay
-                    title="Background Video"
-                  
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                ></iframe>
+            <div className='absolute inset-0 w-full h-full opacity-90 z-10'> {/* Use inset-0 for top/left/right/bottom */}
+                <img className="w-full h-[600px]" src="https://i.pinimg.com/originals/d3/ab/69/d3ab69a13d1babafa373cf2f6e081ba8.jpg" />
             </div>
 
             {/* 2. Hero Section */}
@@ -43,19 +36,15 @@ const HomePage = () => {
                 <div className="absolute inset-0 bg-black opacity-40"></div>
                 <div className="relative container mx-auto px-6 text-center text-white">
                     <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
-                        Experience Divine Peace. Manage Devotion with Intelligence.
+                        Welcome to MandirGo
                     </h1>
                     <p className="text-lg md:text-xl mb-8">
-                        As India prepares for the festive season, we empower temples to transform overwhelming crowds into serene spiritual journeys.
+                        we are introducing the
+                        innovative solution to
+                        Efficient Devotee
+                        Flow Management
                     </p>
-                    <div className="space-x-4">
-                        <button className="bg-orange-500 text-white font-bold px-8 py-3 rounded-lg text-lg hover:bg-orange-600 transition-colors">
-                            Schedule a Free Demo
-                        </button>
-                        <button className="bg-transparent border-2 border-white text-white font-bold px-8 py-3 rounded-lg text-lg hover:bg-white hover:text-orange-500 transition-colors">
-                            Plan Your Visit
-                        </button>
-                    </div>
+
                 </div>
             </header>
 
@@ -63,8 +52,7 @@ const HomePage = () => {
                 {/* 3. The Challenge Section */}
                 <section className="py-20 bg-orange-50">
                     <div className="container mx-auto px-6 text-center">
-                        <h2 className="text-3xl font-bold mb-4">The Festival Rush is Here. Is Your Temple Ready?</h2>
-                        <p className="text-gray-600 mb-12 max-w-2xl mx-auto">This Sunday, October 5th, 2025, thousands face challenges that diminish their spiritual experience. SevaSetu is here to change that.</p>
+                        <p className="text-gray-600 mb-12 max-w-2xl mx-auto">This Sunday, October 5th, 2025, thousands face challenges that diminish their spiritual experience. MandirGo is here to change that.</p>
                         <div className="grid md:grid-cols-3 gap-8">
                             <FeatureCard icon={<FiClock />} title="Endless Waiting Times">
                                 Devotees, especially the elderly and families, spend hours in disorganized queues.
@@ -89,67 +77,44 @@ const HomePage = () => {
                         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                             <FeatureCard icon={<FiUsers />} title="Smart e-Darshan Queuing">Book timed slots via app or kiosks with real-time SMS and push notifications.</FeatureCard>
                             <FeatureCard icon={<FiCpu />} title="AI Crowd Analytics">Live heatmaps from existing CCTV feeds with instant alerts on bottlenecks.</FeatureCard>
-                            <FeatureCard icon={<FiMessageSquare />} title="Unified Communication">Send broadcast messages to devotees and manage staff from a central dashboard.</FeatureCard>
+                            <FeatureCard icon={<FiMessageSquare />} title="OnTime Communication">Send broadcast messages to devotees and manage staff from a central dashboard.</FeatureCard>
                             <FeatureCard icon={<FiTrendingUp />} title="Data-Driven Insights">Use predictive analytics to anticipate footfall and plan resources effectively.</FeatureCard>
                         </div>
                     </div>
                 </section>
 
                 {/* 5. How It Works Section */}
-                <section className="py-20 bg-gray-100">
-                    <div className="container mx-auto px-6 text-center">
-                        <h2 className="text-3xl font-bold mb-12">A Serene Experience in 3 Simple Steps</h2>
-                        <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-4">
-                            <div className="flex-1 text-center">
-                                <div className="bg-orange-500 text-white text-2xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">1</div>
-                                <h3 className="font-bold text-xl mb-2">Book Your Slot</h3>
-                                <p>Devotees book a free time slot via app and receive a QR code.</p>
-                            </div>
-                            <FiArrowRight className="text-orange-400 text-4xl hidden md:block mx-4" />
-                            <div className="flex-1 text-center">
-                                <div className="bg-orange-500 text-white text-2xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">2</div>
-                                <h3 className="font-bold text-xl mb-2">Monitor The Flow</h3>
-                                <p>Admins watch the live dashboard and manage staff proactively.</p>
-                            </div>
-                            <FiArrowRight className="text-orange-400 text-4xl hidden md:block mx-4" />
-                            <div className="flex-1 text-center">
-                                <div className="bg-orange-500 text-white text-2xl font-bold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">3</div>
-                                <h3 className="font-bold text-xl mb-2">Peaceful Darshan</h3>
-                                <p>Visitors arrive, scan their code, and enjoy a smooth, timely experience.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
                 {/* 6. Testimonials Section */}
-                <section className="py-20">
+                <section className="py-20 bg-gray-50">
                     <div className="container mx-auto px-6">
-                        <h2 className="text-3xl font-bold text-center mb-12">Trusted by Temples and Devotees</h2>
-                        <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                        <h2 className="text-3xl font-bold text-center mb-12">Trusted by Gujarat's Most Revered Temples</h2>
+                        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                             <TestimonialCard
-                                quote="SevaSetu has transformed our Navaratri festival management. Our staff is less stressed, and we've received wonderful feedback from devotees about the organized system."
-                                author="Shri. K. V. Prasad"
-                                role="Trustee, Panchavati Temple, Nashik"
+                                quote="Managing the immense flow of pilgrims during Mahashivratri has been streamlined thanks to SevaSetu. Their system for online darshan and aarti booking is a blessing for devotees worldwide."
+                                author="Shri P.K. Laheri"
+                                role="Chairman, Shree Somnath Trust"
                             />
                             <TestimonialCard
-                                quote="Booking a slot for my elderly parents was so easy. We avoided the long Sunday queue and had a truly blessed darshan. A wonderful initiative."
-                                author="Anjali Sharma"
-                                role="Devotee from Delhi"
+                                quote="For a sacred place like Dwarka, ensuring a peaceful darshan is our priority. SevaSetu has brilliantly organized our pooja bookings and crowd management, especially during Janmashtami."
+                                author="Dhanraj Nathwani"
+                                role="Vice Chairman, Dwarkadhish Temple Trust"
+                            />
+                            <TestimonialCard
+                                quote="We visit Ambaji for the Bhadarvi Poonam mela every year. This time, we booked our slot through SevaSetu and had the most peaceful darshan ever, avoiding the huge rush. A wonderful service for families."
+                                author="Rina Mehta"
+                                role="Devotee from Vadodara"
+                            />
+                            <TestimonialCard
+                                quote="With the redevelopment of Pavagadh, visitor numbers have surged. SevaSetu's platform has been crucial in managing the devotee flow, significantly reducing wait times and enhancing the pilgrimage experience."
+                                author="Surendra Patel"
+                                role="President, Shree Mahakali Mandir Trust, Pavagadh"
                             />
                         </div>
                     </div>
                 </section>
 
-                {/* 7. Final CTA Section */}
-                <section className="bg-orange-600 text-white">
-                    <div className="container mx-auto px-6 py-20 text-center">
-                        <h2 className="text-4xl font-bold mb-4">Ready to Embrace a Smarter Way to Manage Devotion?</h2>
-                        <p className="text-xl mb-8 max-w-3xl mx-auto">Join leading temples in ensuring every visitor's experience is safe, serene, and spiritual.</p>
-                        <button className="bg-white text-orange-600 font-bold px-10 py-4 rounded-lg text-xl hover:bg-orange-100 transition-colors">
-                            Schedule My Free Demo
-                        </button>
-                    </div>
-                </section>
+
             </main>
 
             {/* 8. Footer */}
@@ -157,7 +122,7 @@ const HomePage = () => {
                 <div className="container mx-auto px-6 py-12">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         <div>
-                            <h3 className="font-bold text-lg mb-4">SevaSetu</h3>
+                            <h3 className="font-bold text-lg mb-4">MandirGo</h3>
                             <p className="text-gray-400">Divine Peace. Managed Intelligently.</p>
                         </div>
                         <div>
@@ -177,7 +142,7 @@ const HomePage = () => {
                         </div>
                     </div>
                     <div className="text-center text-gray-500 border-t border-gray-700 mt-8 pt-6">
-                        © 2025 SevaSetu Technologies Pvt. Ltd. All rights reserved.
+                        © 2025 MandirGo Technologies Pvt. Ltd. All rights reserved.
                     </div>
                 </div>
             </footer>

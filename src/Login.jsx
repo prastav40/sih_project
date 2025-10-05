@@ -27,7 +27,7 @@ const LoginPage2 = () => {
                         Welcome Back
                     </h2>
                     <p className="mt-2 text-sm text-slate-600">
-                        Sign in to your SevaSetu account
+                        Sign in to your MandirGo account
                     </p>
                 </div>
 

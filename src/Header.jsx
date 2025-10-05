@@ -16,7 +16,7 @@ const Header=()=>{
                                 <Link to="./Features" className="text-gray-600 hover:text-orange-500">Features</Link>
                                 <Link to="./livestatus" className="text-gray-600 hover:text-orange-500">Live Crowd Status</Link>
                                 <Link to="/About" className="text-gray-600 hover:text-orange-500">About us</Link>
-                                <Link to="/Map" className="text-gray-600 hover:text-orange-500">Route and Map</Link>
+                                <Link to="/Map" className="text-gray-600 hover:text-orange-500">Map and Directions</Link>
                                 <Link to="/Login"><button className="flex items-center text-gray-600 hover:text-orange-500">
                                     <FiLogIn className="mr-1" /> Login
                                 </button></Link>

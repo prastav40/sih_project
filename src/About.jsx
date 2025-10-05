@@ -29,11 +29,9 @@ const AboutPage = () => {
               Our Journey: From a Crowded Lane to a Clear Vision
             </h2>
             <p className="text-slate-600 leading-relaxed">
-              The idea for SevaSetu was born during a visit to a revered temple on a festive Sunday afternoon. The spiritual energy was immense, but so was the chaos. We saw elderly devotees struggling in long queues, families anxious about losing their children, and temple staff overwhelmed by the sheer volume of people.
+              The idea for MandirGo was born during a visit to a revered temple on a festive Sunday afternoon. The spiritual energy was immense, but so was the chaos. We saw elderly devotees struggling in long queues, families anxious about losing their children, and temple staff overwhelmed by the sheer volume of people.
             </p>
-            <p className="text-slate-600 leading-relaxed">
-              That experience sparked a question: Could technology be used not to disrupt, but to preserve and enhance the sanctity of these ancient traditions? Could we build a bridge—a 'Setu'—that uses innovation to facilitate 'Seva' (selfless service) and devotion?
-            </p>
+           
           </div>
           <div>
             <img src="https://c9admin.cottage9.com/uploads/5839/somnath-temple.jpg" alt="A serene temple corridor" className="rounded-xl shadow-2xl w-full h-auto object-cover" />
@@ -89,7 +87,7 @@ const AboutPage = () => {
                 </div>
                  <div className="text-center p-6">
                     <FiShield className="mx-auto text-4xl text-amber-500 mb-4"/>
-                    <h4 className="text-xl font-bold text-slate-800">Partners in Seva</h4>
+                    <h4 className="text-xl font-bold text-slate-800">Partners in MandirGo</h4>
                     <p className="text-slate-600 mt-2">We work collaboratively with temple trusts to create solutions that last.</p>
                 </div>
             </div>
@@ -102,7 +100,7 @@ const AboutPage = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-slate-800">Plan Your Visit</h2>
             <p className="text-slate-600 mt-4 max-w-3xl mx-auto">
-              An example of how SevaSetu helps provide clear information to devotees. (Example: Kashi Vishwanath Temple, Varanasi)
+              An example of how MandirGo helps provide clear information to devotees. (Example: Kashi Vishwanath Temple, Varanasi)
             </p>
           </div>
           <div className="grid lg:grid-cols-3 gap-8">

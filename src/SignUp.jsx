@@ -59,7 +59,7 @@ const UserSignUpPage = () => {
                 <div className="max-w-md w-full space-y-6">
                     <div>
                         <h2 className="text-center text-3xl font-extrabold text-slate-900">
-                            Sign Up for SevaSetu
+                            Sign Up for MandirGo
                         </h2>
                         <p className="mt-2 text-center text-sm text-slate-600">
                             Already have an account?{' '}
